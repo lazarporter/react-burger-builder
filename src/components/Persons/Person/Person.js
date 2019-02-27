@@ -1,7 +1,10 @@
 //in its simplest form, a 'component' is a function that returns from JSX for React to render.
 import React, {Component} from 'react'
-import classes from  './Person.css'
+
 import Aux from '../../../HOC/Auxiliary'
+import withClass from '../../../HOC/withClass'
+import classes from  './Person.css'
+
 
 class Person extends Component {
     render() {
@@ -9,7 +12,7 @@ class Person extends Component {
         return (   
             <Aux>
                 <p key="i1" onClick={this.props.click}>I'm {this.props.name} and I'm {this.props.age} years old!</p>,
-                <p key="i2"> {this.props.children}</p>,
+                <p key="i2"> {this.props.children}</p>
                 <input key="i3" 
                     type="text" 
                     onChange={this.props.changed} 
@@ -19,4 +22,4 @@ class Person extends Component {
         )
     }       
 }
-export default Person; 
+export default withClass(Person, classes.Person); 
